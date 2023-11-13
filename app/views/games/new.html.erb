@@ -1,0 +1,28 @@
+<div class="container w-50 d-flex justify-content-center text-center">
+  <div class="container">
+    <div>
+      <h1 class="pt-4 pb-4">New Game!</h1>
+    </div>
+    <div class="row justify-content-center">
+      <% @letters.each do |letter| %>
+        <div class="col-1">
+        <a href="#" class="btn btn-primary"><%= letter.capitalize %></a>
+        </div>
+      <% end %>
+    </div>
+      <h3 class="pt-4">Think of the longest word possible with the letters above!</h3>
+      <div class="input-group justify-content-center">
+        <form action="/score" method="POST" data-turbo="false">
+          <input type="text" name="letters" value=<%=@letters.join("")%> class="d-none">
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+          <div class="input-group mb-3">
+            <input type="text" name="answer" class="form-control" placeholder="Write here..." aria-label="Write here..." aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="submit">Submit!</button>
+            </div>
+          </div>
+        </form>
+  </div>
+</div>
+
+</div>
